@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registration"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        tools:layout="@layout/fragment_registration"
+        android:id="@+id/registrationFragment"
+        android:name="com.witask.app.RegistrationFragment"
+        android:label="RegistrationFragment" >
+        <action
+            android:id="@+id/action_registrationFragment_to_dateFragment"
+            app:destination="@id/dateFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_date"
+        android:id="@+id/dateFragment"
+        android:name="com.witask.app.DateFragment"
+        android:label="DateFragment" >
+        <action
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            android:id="@+id/action_dateFragment_to_selectCategoriesFragment"
+            app:destination="@id/selectCategoriesFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_select_categories"
+        android:id="@+id/selectCategoriesFragment"
+        android:name="com.witask.app.SelectCategoriesFragment"
+        android:label="SelectCategoriesFragment" >
+        <action
+            android:id="@+id/action_selectCategoriesFragment_to_coreActivity"
+            app:destination="@id/coreActivity"
+            app:popUpTo="@id/registration"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <activity
+        android:id="@+id/coreActivity"
+        android:name="com.witask.app.CoreActivity"
+        android:label="CoreActivity" />
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.witask.app.StartFragment"
+        android:label="StartFragment" >
+        <action
+            android:id="@+id/action_startFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+</navigation>
